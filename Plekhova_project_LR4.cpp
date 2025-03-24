@@ -6,22 +6,67 @@ int side1, side2;
 
 
 void Task1() {
+     cout << "Введите длину первой стороны прямоугольника: ";
+    while (!(cin >> side1) || side1 <= 0) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Ошибка! Введите положительное целое число: ";
+    }
     
 }
 
 void Task2() {
+     cout << "Введите длину второй стороны прямоугольника: ";
+    while (!(cin >> side2) || side2 <= 0) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Ошибка! Введите положительное целое число: ";
+    }
     
 }
 
 void Task3() {
+    if (side1 == 0 || side2 == 0) {
+        cout << "Ошибка! Сначала введите длины сторон (пункты 1 и 2 меню)." << endl;
+        return;
+    }
+    cout << "Площадь прямоугольника: " << side1 * side2 << endl;
     
 }
 
 void Task4() {
+     if (side1 == 0 || side2 == 0) {
+        cout << "Ошибка! Сначала введите длины сторон (пункты 1 и 2 меню)." << endl;
+        return;
+    }
+    cout << "Периметр прямоугольника: " << 2 * (side1 + side2) << endl;
    
 }
 
 void Task5() {
+    double x, y, z;
+    
+    auto readDouble = [](const string& prompt) -> double {
+        double value;
+        cout << prompt;
+        while (!(cin >> value)) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Ошибка! Введите число: " << prompt;
+        }
+        return value;
+    };
+
+    x = readDouble("Введите число x: ");
+    y = readDouble("Введите число y: ");
+    z = readDouble("Введите число z: ");
+
+    double sum_frac = fmod(fabs(x), 1) + fmod(fabs(y), 1) + fmod(fabs(z), 1);
+    int sum_int = static_cast<int>(x) + static_cast<int>(y) + static_cast<int>(z);
+    
+    cout << "Сумма дробных частей: " << sum_frac << endl;
+    cout << "Сумма целых частей: " << sum_int << endl;
+}
     
 }
 
