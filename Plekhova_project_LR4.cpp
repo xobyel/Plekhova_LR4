@@ -8,7 +8,6 @@ using namespace std;
 
 int side1, side2;
 
-
 void Task1() {
     
 }
